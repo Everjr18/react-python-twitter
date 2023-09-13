@@ -39,7 +39,12 @@ const SignUp: React.FC = () => {
   const mutation = useMutation(async (formData: FormDataSignUp) => {
     const response = await axios.post<UserResponseSignUp>(
       "https://twitter-api-6tse.onrender.com/users/api/register/",
-      formData
+      formData,
+      {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      }
     );
 
     return response;

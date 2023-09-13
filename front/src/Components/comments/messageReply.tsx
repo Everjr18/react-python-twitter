@@ -4,6 +4,7 @@ import usePostStore from "../../Hooks/Home/postStore/usePostStore";
 import { closeIcon } from "../Home/createPost/Icons/closeIcon";
 import { useAppSelector } from "../../Hooks/useAppSelector";
 import { getPostById } from "../../services/dataApi";
+import defaultUser from "../../assets/userDefault.png";
 
 export default function MessageReply() {
   const dataPost = useAppSelector(
@@ -36,7 +37,19 @@ export default function MessageReply() {
   return (
     <section className="grid grid-flow-row auto-rows-max px-4 pt-4 mt-3">
       <div className="grid grid-cols-[40px,1fr]">
-        <img src={dataPost?.avatar} className="w-10 h-10 rounded-full bg-black cursor-pointer" />
+      {dataPost.avatar ? (
+          <img
+            src={dataPost.avatar}
+            alt=""
+            className="w-10 h-10 rounded-full cursor-pointer"
+          />
+        ) : (
+          <img
+            src={defaultUser}
+            className="w-10 h-10 rounded-full"
+            alt=""
+          />
+        )}
         <div className="flex flex-col ml-3">
           <textarea
             className="border-0 focus:ring-white

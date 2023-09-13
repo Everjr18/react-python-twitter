@@ -36,10 +36,10 @@ export default function CommentsTweets() {
                   <img
                     src={avatar}
                     alt=""
-                    className="w-[45px] h-[45px] rounded-full cursor-pointer"
+                    className="w-10 h-10 rounded-full cursor-pointer"
                   />
                 ) : (
-                  <img src={defaultUser} className="w-[45px] h-[45px] rounded-full" alt="" />
+                  <img src={defaultUser} className="w-10 h-10 rounded-full" alt="" />
                 )}
               {/* </Tooltip> */}
             </div>

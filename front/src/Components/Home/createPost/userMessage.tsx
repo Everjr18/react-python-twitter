@@ -6,6 +6,7 @@ import { closeIcon } from "./Icons/closeIcon";
 import usePostStore from "../../../Hooks/Home/postStore/usePostStore";
 import { useAppSelector } from "../../../Hooks/useAppSelector";
 import { getPostById } from "../../../services/dataApi";
+import defaultUser from "../../../assets/userDefault.png";
 
 export default function UserMessage() {
   const dataPost = useAppSelector(
@@ -15,9 +16,8 @@ export default function UserMessage() {
   const id = localStorage.getItem("userId");
 
   useEffect(() => {
-    getPostById({id})
-  },
-  [id])
+    getPostById({ id });
+  }, [id]);
   const [selectOption, setSelectedOption] = useState("todos");
   const {
     textArea,
@@ -44,7 +44,19 @@ export default function UserMessage() {
   return (
     <section className="grid grid-flow-row auto-rows-max px-4 pt-4">
       <div className="grid grid-cols-[40px,1fr]">
-        <img src={dataPost?.avatar} className="w-10 h-10 rounded-full bg-black cursor-pointer" />
+        {dataPost.avatar ? (
+          <img
+            src={dataPost.avatar}
+            alt=""
+            className="w-10 h-10 rounded-full cursor-pointer"
+          />
+        ) : (
+          <img
+            src={defaultUser}
+            className="w-10 h-10 rounded-full"
+            alt=""
+          />
+        )}
         <div className="flex flex-col ml-3">
           <select
             className=" w-[108px] h-10 border-1 flex items-center 

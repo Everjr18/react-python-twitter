@@ -22,6 +22,7 @@ export default function Tweets(): JSX.Element {
 
   if (isLoading) return <LoadingComponent />;
 
+
   const handleClickId = (
     id: number,
     firs_name: string,
@@ -88,7 +89,7 @@ export default function Tweets(): JSX.Element {
                       <span className="hover:underline">
                         {tweet.usuario?.firs_name}
                       </span>
-                      <span>@{tweet.usuario?.firs_name}</span>
+                      <span>@{tweet.usuario?.firs_name.replace(/\s+/g, "")}</span>
                     {/* </Tooltip> */}
                     <span className="mb-2">.</span>
                     <span className="">
